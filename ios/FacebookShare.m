@@ -24,6 +24,8 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)data
         return;
     }
     
+    NSString *title = imageDict[@"title"];
+    NSString *message = imageDict[@"message"];
     NSString *imageName = imageDict[@"imageName"];
     NSString *videoPath = videoDict[@"videoPath"];
     
@@ -40,11 +42,13 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)data
     
     NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
     
-    [self shareMediaToFacebookWithImage:image videoURL:videoURL reject:reject resolve:resolve];
+    [self shareMediaToFacebookWithImage:image title:title message:message videoURL:videoURL reject:reject resolve:resolve];
 }
 
 - (void)shareMediaToFacebookWithImage:(UIImage *)image
                              videoURL:(NSURL *)videoURL
+                                title:(NSString *)title
+                              message:(NSString *)message
                                reject:(RCTPromiseRejectBlock)reject
                               resolve:(RCTPromiseResolveBlock)resolve {
     FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
@@ -56,12 +60,15 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)data
     
     FBSDKSharePhotoContent *photoContent = [[FBSDKSharePhotoContent alloc] init];
     photoContent.photos = @[photo];
+    photoContent.contentTitle = title; // Set title
     
     FBSDKShareVideoContent *videoContent = [[FBSDKShareVideoContent alloc] init];
     videoContent.video = video;
+    videoContent.contentTitle = title; // Set title
     
     FBSDKShareMediaContent *content = [[FBSDKShareMediaContent alloc] init];
     content.media = @[photoContent, videoContent];
+    content.contentDescription = message; // Set message
     
     FBSDKShareDialog *shareDialog = [[FBSDKShareDialog alloc] init];
     shareDialog.fromViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
@@ -76,5 +83,6 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)data
     [shareDialog show];
     resolve(@YES);
 }
+
 
 @end
