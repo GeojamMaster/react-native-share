@@ -7,6 +7,7 @@
  */
 
 import React, {useState} from 'react';
+import RNFetchBlob from 'rn-fetch-blob';
 import {
   Alert,
   Button,
@@ -23,7 +24,9 @@ import Share from 'react-native-share';
 
 import images from './images/imagesBase64';
 import pdfBase64 from './images/pdfBase64';
-import {video} from './videos/videoBase64';
+import videoBase64, {video} from './videos/videoBase64';
+
+const isAndroid = Platform.OS === 'android';
 
 const App = () => {
   const [packageSearch, setPackageSearch] = useState<string>('');
@@ -256,11 +259,53 @@ const App = () => {
     }
   };
 
+  const shareToInstagramReel = async () => {
+    try {
+      const dirs = RNFetchBlob.fs.dirs;
+      const videoURL = `https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`;
+      const res = await RNFetchBlob.config({
+        fileCache: true,
+        appendExt: 'mp4',
+        path: `${dirs.DocumentDir}/test.mp4`,
+      }).fetch('GET', videoURL);
+      const currentPath = `${isAndroid ? 'file://' : ''}${res.path()}`;
+      const ShareResponse = await Share.shareSingle({
+        title: 'Share image to instareel',
+        backgroundVideo: currentPath,
+        social: Share.Social.INSTAGRAM_REELS,
+        appId: '219376304', //instagram appId
+      });
+      console.log('Response =>', ShareResponse);
+      setResult(JSON.stringify(ShareResponse, null, 2));
+    } catch (error) {
+      console.log('Error =>', error);
+      setResult('error: '.concat(getErrorString(error)));
+    }
+  };
+
   const shareToFacebookStory = async () => {
     const shareOptions = {
       title: 'Share image to fbstory',
       backgroundImage: images.image1,
       social: Share.Social.FACEBOOK_STORIES,
+      appId: '219376304', //facebook appId
+    };
+
+    try {
+      const ShareResponse = await Share.shareSingle(shareOptions);
+      console.log('Response =>', ShareResponse);
+      setResult(JSON.stringify(ShareResponse, null, 2));
+    } catch (error) {
+      console.log('Error =>', error);
+      setResult('error: '.concat(getErrorString(error)));
+    }
+  };
+
+  const shareToFacebook = async () => {
+    const shareOptions = {
+      social: Share.Social.FACEBOOK,
+      // url: images.image1,
+      title: 'Share image to fby',
       appId: '219376304', //facebook appId
     };
 
@@ -399,7 +444,13 @@ const App = () => {
           <Button onPress={shareToInstagramStory} title="Share to IG Story" />
         </View>
         <View style={styles.button}>
+          <Button onPress={shareToInstagramReel} title="Share to IG Reels" />
+        </View>
+        <View style={styles.button}>
           <Button onPress={shareToInstagramDirect} title="Share to IG Direct" />
+        </View>
+        <View style={styles.button}>
+          <Button onPress={shareToFacebook} title="Share to FB" />
         </View>
         <View style={styles.button}>
           <Button onPress={shareToFacebookStory} title="Share to FB Story" />
