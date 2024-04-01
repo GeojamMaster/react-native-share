@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,12 @@
 		B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNShare.m */; };
 		B3EEE48E1D4844E7008422B6 /* GooglePlusShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE48D1D4844E7008422B6 /* GooglePlusShare.m */; };
 		CE0C76371E9E7DE100ED396E /* InstagramShare.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0C76361E9E7DE100ED396E /* InstagramShare.m */; };
+		EC0CE1392BB9B1A200C786A6 /* FacebookShare.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE1382BB9B1A200C786A6 /* FacebookShare.m */; };
+		EC0CE1402BBA60E400C786A6 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = EC0CE13F2BBA60E400C786A6 /* FacebookAEM */; };
+		EC0CE1422BBA60E400C786A6 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = EC0CE1412BBA60E400C786A6 /* FacebookBasics */; };
+		EC0CE1442BBA60E400C786A6 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = EC0CE1432BBA60E400C786A6 /* FacebookCore */; };
+		EC0CE1462BBA60E400C786A6 /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = EC0CE1452BBA60E400C786A6 /* FacebookGamingServices */; };
+		EC0CE1482BBA60E400C786A6 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = EC0CE1472BBA60E400C786A6 /* FacebookLogin */; };
 		EC90D62D2BAD196A007DC785 /* InstagramReels.m in Sources */ = {isa = PBXBuildFile; fileRef = EC90D62C2BAD196A007DC785 /* InstagramReels.m */; };
 		F1A1AD582444B09B00E32E33 /* FacebookStories.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A1AD572444B09B00E32E33 /* FacebookStories.m */; };
 		FCC7BB4F221457EF00E1EA39 /* InstagramStories.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC7BB4E221457EF00E1EA39 /* InstagramStories.m */; };
@@ -56,6 +62,8 @@
 		B3EEE48F1D4844F4008422B6 /* GooglePlusShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GooglePlusShare.h; sourceTree = "<group>"; };
 		CE0C76361E9E7DE100ED396E /* InstagramShare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramShare.m; sourceTree = "<group>"; };
 		CE0C76621E9E869300ED396E /* InstagramShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstagramShare.h; sourceTree = "<group>"; };
+		EC0CE1382BB9B1A200C786A6 /* FacebookShare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookShare.m; sourceTree = "<group>"; };
+		EC0CE13D2BBA51F000C786A6 /* FacebookShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookShare.h; sourceTree = "<group>"; };
 		EC90D62C2BAD196A007DC785 /* InstagramReels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramReels.m; sourceTree = "<group>"; };
 		EC90D62E2BAD1978007DC785 /* InstagramReels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstagramReels.h; sourceTree = "<group>"; };
 		F1A1AD562444B09B00E32E33 /* FacebookStories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookStories.h; sourceTree = "<group>"; };
@@ -69,6 +77,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0CE1482BBA60E400C786A6 /* FacebookLogin in Frameworks */,
+				EC0CE1402BBA60E400C786A6 /* FacebookAEM in Frameworks */,
+				EC0CE1442BBA60E400C786A6 /* FacebookCore in Frameworks */,
+				EC0CE1422BBA60E400C786A6 /* FacebookBasics in Frameworks */,
+				EC0CE1462BBA60E400C786A6 /* FacebookGamingServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +133,8 @@
 				962C1A3B2A8A714D0046A9E0 /* SmsShare.m */,
 				EC90D62C2BAD196A007DC785 /* InstagramReels.m */,
 				EC90D62E2BAD1978007DC785 /* InstagramReels.h */,
+				EC0CE1382BB9B1A200C786A6 /* FacebookShare.m */,
+				EC0CE13D2BBA51F000C786A6 /* FacebookShare.h */,
 			);
 			name = social;
 			sourceTree = "<group>";
@@ -140,6 +155,13 @@
 			dependencies = (
 			);
 			name = RNShare;
+			packageProductDependencies = (
+				EC0CE13F2BBA60E400C786A6 /* FacebookAEM */,
+				EC0CE1412BBA60E400C786A6 /* FacebookBasics */,
+				EC0CE1432BBA60E400C786A6 /* FacebookCore */,
+				EC0CE1452BBA60E400C786A6 /* FacebookGamingServices */,
+				EC0CE1472BBA60E400C786A6 /* FacebookLogin */,
+			);
 			productName = RCTDataManager;
 			productReference = 134814201AA4EA6300B7C361 /* libRNShare.a */;
 			productType = "com.apple.product-type.library.static";
@@ -168,6 +190,9 @@
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
+			packageReferences = (
+				EC0CE13E2BBA60E400C786A6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = 58B511D21A9E6C8500147676;
 			projectDirPath = "";
 			projectRoot = "";
@@ -185,6 +210,7 @@
 				F1A1AD582444B09B00E32E33 /* FacebookStories.m in Sources */,
 				65B4E1BA28AF0DC800D905B8 /* RNShareUtils.m in Sources */,
 				6D697F8423A86EBC00F754A1 /* RNShareActivityItemSource.m in Sources */,
+				EC0CE1392BB9B1A200C786A6 /* FacebookShare.m in Sources */,
 				EC90D62D2BAD196A007DC785 /* InstagramReels.m in Sources */,
 				CE0C76371E9E7DE100ED396E /* InstagramShare.m in Sources */,
 				B3EEE48E1D4844E7008422B6 /* GooglePlusShare.m in Sources */,
@@ -278,6 +304,7 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +327,7 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -340,6 +368,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC0CE13E2BBA60E400C786A6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC0CE13F2BBA60E400C786A6 /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC0CE13E2BBA60E400C786A6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		EC0CE1412BBA60E400C786A6 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC0CE13E2BBA60E400C786A6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		EC0CE1432BBA60E400C786A6 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC0CE13E2BBA60E400C786A6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		EC0CE1452BBA60E400C786A6 /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC0CE13E2BBA60E400C786A6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		EC0CE1472BBA60E400C786A6 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC0CE13E2BBA60E400C786A6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
 }

@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/react-native-community/react-native-share.git", :tag => "v#{s.version}" }
 
-  s.source_files  = "ios/**/*.{h,m,mm}"
+s.source_files  = "ios/**/*.{h,m,mm}"
 
   s.dependency "React-Core"
 

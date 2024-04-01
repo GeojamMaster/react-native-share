@@ -2,7 +2,7 @@
 //  InstagramShare.m
 //  RNShare
 //
-//  Created by Ralf Nieuwenhuizen on 12-04-17.
+//  Created by Luciano Bracco on 31-03-2024.
 //
 
 #import "InstagramShare.h"

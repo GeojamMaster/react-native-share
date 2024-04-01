@@ -22,6 +22,7 @@
 #import "ViberShare.h"
 #import "MessengerShare.h"
 #import "SmsShare.h"
+#import "FacebookShare.h"
 #import "RNShareActivityItemSource.h"
 #import "RNShareUtils.h"
 
@@ -117,8 +118,8 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)options
         NSLog(@"%@", social);
         if([social isEqualToString:@"facebook"]) {
             NSLog(@"TRY OPEN FACEBOOK");
-            GenericShare *shareCtl = [[GenericShare alloc] init];
-            [shareCtl shareSingle:options reject: reject resolve: resolve serviceType: SLServiceTypeFacebook inAppBaseUrl:@"fb://"];
+            FacebookShare *shareCtl = [[FacebookShare alloc] init];
+            [shareCtl shareSingle:options reject: reject resolve: resolve];
         } else if([social isEqualToString:@"facebookstories"]) {
             NSString *appId = [RCTConvert NSString:options[@"appId"]];
             if (appId) {

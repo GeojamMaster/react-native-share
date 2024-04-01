@@ -1,9 +1,8 @@
 //
-//  InstagramStories.h
+//  InstagramShare.h
 //  RNShare
 //
-//  Created by Nikita Logachev on 13.02.2019.
-//  link: https://github.com/loga4
+//  Created by Luciano Bracco on 31-03-2024.
 //
 
 #import <UIKit/UIKit.h>
